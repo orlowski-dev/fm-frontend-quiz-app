@@ -13,10 +13,12 @@ interface Props {
 const HelloSection = (props: Props) => {
   return (
     <section className="hello-section container">
-      <h1>
-        <span>Welcome to the</span> Frontend Quiz!
-      </h1>
-      <p>Pick a subject to get started.</p>
+      <div>
+        <h1>
+          <span>Welcome to the</span> Frontend Quiz!
+        </h1>
+        <p>Pick a subject to get started.</p>
+      </div>
 
       <section className="subjects-section">
         {Subjects.map((subject, index: number) => {

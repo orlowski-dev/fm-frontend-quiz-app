@@ -37,15 +37,16 @@ const Game = (props: Props) => {
     <section className="game-section container">
       {!gameFinised ? (
         <>
-          <p>
-            Question {qIndex + 1} of {Max}
-          </p>
-          <h2>{question}</h2>
-          <Progressbar currentValue={qIndex + 1} max={Max} />
+          <div>
+            <p>
+              Question {qIndex + 1} of {Max}
+            </p>
+            <h2>{question}</h2>
+            <Progressbar currentValue={qIndex + 1} max={Max} />
+          </div>
           <Options
             options={options}
             answer={answer}
-            // callback={formSubmitCallback}
             nextQuestionCallback={nextQuestionCallback}
           />
         </>

@@ -7,18 +7,28 @@
   font-size: 1.125rem;
 
   label {
-    padding: 0.75rem;
-    padding-left: 4rem;
+    padding: 0.75rem 4rem;
     cursor: pointer;
     min-height: 4rem;
     display: flex;
     align-items: center;
     border: 3px solid white;
-    transition: border-color 0.1s ease-in;
+    transition: border-color 0.1s ease-in, background-color 0.1s ease-in;
     width: 100%;
     border-radius: 0.75rem;
     background-color: white;
     box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+
+    &::after {
+      position: absolute;
+      top: calc(50% - 1rem);
+      right: 1rem;
+      content: "";
+      width: 2rem;
+      height: 2rem;
+      background-size: 2rem;
+      opacity: 0;
+    }
   }
   .letter {
     position: absolute;
@@ -47,6 +57,10 @@
 
     &.wrong ~ label {
       border-color: var(--red);
+      &::after {
+        background-image: url("/assets/images/icon-incorrect.svg");
+        animation: 0.1s fadeIn forwards;
+      }
     }
     &.wrong ~ .letter {
       background-color: var(--red);
@@ -54,10 +68,70 @@
     }
     &.correct ~ label {
       border-color: var(--green);
+      &::after {
+        background-image: url("/assets/images/icon-correct.svg");
+        animation: 0.1s fadeIn forwards;
+      }
     }
     &.correct ~ .letter {
       background-color: var(--green);
       color: white;
     }
+  }
+}
+
+body.dark {
+  .quiz-option {
+    label {
+      background-color: var(--dark-2);
+      box-shadow: unset;
+      border-color: var(--dark-2);
+    }
+
+    input {
+      &:checked ~ .letter {
+        background-color: var(--purple);
+        color: white;
+      }
+      &:checked ~ label {
+        border-color: var(--purple);
+      }
+
+      &.wrong ~ label {
+        border-color: var(--red);
+        &::after {
+          background-image: url("/assets/images/icon-incorrect.svg");
+          animation: 0.1s fadeIn forwards;
+        }
+      }
+      &.wrong ~ .letter {
+        background-color: var(--red);
+        color: white;
+      }
+      &.correct ~ label {
+        border-color: var(--green);
+        &::after {
+          background-image: url("/assets/images/icon-correct.svg");
+          animation: 0.1s fadeIn forwards;
+        }
+      }
+      &.correct ~ .letter {
+        background-color: var(--green);
+        color: white;
+      }
+    }
+
+    .letter {
+      background-color: var(--dark-1);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

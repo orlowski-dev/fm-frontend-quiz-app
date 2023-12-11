@@ -3,3 +3,56 @@ body {
   background-repeat: no-repeat;
   background-position: top left;
 }
+
+body {
+  color-scheme: "light";
+  background-color: var(--gray-2);
+  color: var(--dark-1);
+  -webkit-transition: background-image 0.1s ease-in;
+  transition: color 0.1s ease-in, background-color 0.1s ease-in,
+    background-image 0.1s ease-in;
+}
+
+body.dark {
+  background-image: url("/assets/images/pattern-background-mobile-dark.svg");
+  background-color: var(--dark-1);
+  color-scheme: var(--dark-1);
+  color: white;
+}
+.container {
+  max-width: 75rem;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 660px) {
+  body {
+    background-position: top -350px left;
+  }
+  .container {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  body {
+    background-image: url("/assets/images/pattern-background-desktop-light.svg");
+    background-position: top center;
+    background-size: fill;
+  }
+
+  body.dark {
+    background-image: url("/assets/images/pattern-background-desktop-dark.svg");
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+  }
+}

@@ -11,6 +11,8 @@
   font-weight: 500;
   cursor: pointer;
   box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  transition: background-color 0.1s ease-in, color 0.1s ease-in,
+    border-color 0.1s ease-in, color 0.1s ease-in;
   color: var(--dark-1);
 
   img {
@@ -29,4 +31,16 @@
   font-weight: 500;
   padding: 1.125rem;
   cursor: pointer;
+}
+
+body.dark {
+  .button {
+    box-shadow: none;
+  }
+  .quiz-button {
+    box-shadow: none;
+    background-color: var(--dark-2);
+    border-color: var(--dark-2);
+    color: white;
+  }
 }

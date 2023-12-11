@@ -10,3 +10,16 @@
     margin-top: 2.5rem;
   }
 }
+
+@media screen and (min-width: 960px) {
+  .game-section {
+    div {
+      p {
+        margin-bottom: 1.625rem;
+      }
+      h2 {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}

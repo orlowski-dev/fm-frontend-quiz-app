@@ -1,5 +1,6 @@
 import type { Quiz } from "../App";
 import "./AppHeader.scss";
+import DarkModeToggler from "./DarkModeToggler";
 
 interface Props {
   quiz: Quiz | undefined | null;
@@ -16,7 +17,7 @@ const AppHeader = (props: Props) => {
           </>
         )}
       </div>
-      <div></div>
+      <DarkModeToggler />
     </header>
   );
 };
