@@ -2,18 +2,22 @@ import { useCallback, useState } from "react";
 import Progressbar from "./Progressbar";
 import "./Game.scss";
 import Options from "./Options";
+import ResultCard from "./ResultCard";
+import { Quiz } from "../App";
 
 interface Props {
-  questions: { question: string; answer: string; options: string[] }[];
+  quiz: Quiz;
+  callback: (quiz: Quiz | undefined | null) => void;
 }
 
 const Max = 10;
 
-const Game = ({ questions }: Props) => {
+const Game = (props: Props) => {
   const [qIndex, setQIndex] = useState(0);
   const [points, setPoints] = useState(0);
-  const question = questions[qIndex].question;
-  const answer = questions[qIndex].answer;
+  const question = props.quiz.questions[qIndex].question;
+  const answer = props.quiz.questions[qIndex].answer;
+  const options = props.quiz.questions[qIndex].options;
   const [gameFinised, setGameFinished] = useState(false);
 
   const formSubmitCallback = useCallback(
@@ -40,12 +44,19 @@ const Game = ({ questions }: Props) => {
           </p>
           <h2>{question}</h2>
           <Progressbar currentValue={qIndex + 1} max={Max} />
-          <Options
-            options={questions[qIndex].options}
-            callback={formSubmitCallback}
+          <Options options={options} callback={formSubmitCallback} />
+        </>
+      ) : (
+        <>
+          <ResultCard
+            title={props.quiz.title}
+            icon={props.quiz.icon}
+            points={points}
+            max={Max}
+            callback={props.callback}
           />
         </>
-      ) : undefined}
+      )}
     </section>
   );
 };

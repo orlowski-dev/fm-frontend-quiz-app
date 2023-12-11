@@ -13,7 +13,7 @@ export interface Quiz {
 const App = () => {
   const [quiz, setQuiz] = useState<null | undefined | Quiz>(null);
 
-  const setQuizCallback = useCallback((quiz: Quiz | undefined) => {
+  const setQuizCallback = useCallback((quiz: Quiz | undefined | null) => {
     setQuiz(quiz);
   }, []);
 
@@ -22,7 +22,7 @@ const App = () => {
       <AppHeader quiz={quiz} />
       <main>
         {!quiz && <HelloSection callback={setQuizCallback} />}
-        {quiz && <Game questions={quiz.questions} />}
+        {quiz && <Game quiz={quiz} callback={setQuizCallback} />}
       </main>
     </>
   );
