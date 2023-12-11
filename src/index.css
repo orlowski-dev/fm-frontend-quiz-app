@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+:root {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  --purple: #a729f5;
+  --dark-1: #313e51;
+  --dark-2: #3b4d66;
+  --dark-3: #626c7f;
+  --gray-1: #abc1e1;
+  --gray-2: #f4f6fa;
+  --green: #26d782;
+  --red: #ee5454;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+}
