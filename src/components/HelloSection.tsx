@@ -1,7 +1,7 @@
 import type { Quiz } from "../App";
 import { default as data } from "../data.json";
 import "./HelloSection.scss";
-import QuizButton from "./QuizButton";
+import { QuizButton } from "./Buttons";
 
 const Subjects = ["HTML", "CSS", "JavaScript", "Accessibility"];
 const quizzes = data.quizzes;
@@ -22,10 +22,6 @@ const HelloSection = (props: Props) => {
         {Subjects.map((subject, index: number) => {
           const q = quizzes.find((quiz) => quiz.title === subject);
           return (
-            // <button key={index} onClick={() => props.callback(q)}>
-            //   <img src={q?.icon} />
-            //   {subject}
-            // </button>
             <QuizButton
               key={index}
               textContent={subject}

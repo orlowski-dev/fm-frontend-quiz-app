@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import HelloSection from "./components/HelloSection";
 import AppHeader from "./components/AppHeader";
 import "./App.css";
+import Game from "./components/Game";
 
 export interface Quiz {
   title: string;
@@ -19,7 +20,10 @@ const App = () => {
   return (
     <>
       <AppHeader quiz={quiz} />
-      <main>{!quiz && <HelloSection callback={setQuizCallback} />}</main>
+      <main>
+        {!quiz && <HelloSection callback={setQuizCallback} />}
+        {quiz && <Game questions={quiz.questions} />}
+      </main>
     </>
   );
 };
