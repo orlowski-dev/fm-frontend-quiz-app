@@ -1,0 +1,22 @@
+.app-header {
+  z-index: 50;
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  .subject {
+    gap: 1rem;
+
+    img {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 1.125rem;
+    }
+  }
+}

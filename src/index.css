@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
 
 :root {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   --purple: #a729f5;
   --dark-1: #313e51;
@@ -17,9 +17,23 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 500;
+}
+
+body {
+  background-color: var(--gray-2);
+  color: var(--dark-1);
+}
+
+.container {
+  max-width: 75rem;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
 }
