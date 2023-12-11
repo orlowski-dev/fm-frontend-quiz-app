@@ -20,11 +20,9 @@ const Game = (props: Props) => {
   const options = props.quiz.questions[qIndex].options;
   const [gameFinised, setGameFinished] = useState(false);
 
-  const formSubmitCallback = useCallback(
-    (selectedOption: string) => {
-      if (selectedOption === answer) {
-        setPoints((prev) => prev + 1);
-      }
+  const nextQuestionCallback = useCallback(
+    (addPoint?: boolean) => {
+      if (addPoint) setPoints((prev) => prev + 1);
 
       if (qIndex < Max - 1) {
         setQIndex((prev) => prev + 1);
@@ -32,7 +30,7 @@ const Game = (props: Props) => {
         setGameFinished(true);
       }
     },
-    [answer, qIndex]
+    [qIndex]
   );
 
   return (
@@ -44,7 +42,12 @@ const Game = (props: Props) => {
           </p>
           <h2>{question}</h2>
           <Progressbar currentValue={qIndex + 1} max={Max} />
-          <Options options={options} callback={formSubmitCallback} />
+          <Options
+            options={options}
+            answer={answer}
+            // callback={formSubmitCallback}
+            nextQuestionCallback={nextQuestionCallback}
+          />
         </>
       ) : (
         <>

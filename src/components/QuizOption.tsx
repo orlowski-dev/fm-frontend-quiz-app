@@ -4,6 +4,7 @@ import "./QuizOption.scss";
 interface Props {
   qId: number;
   textContent: string;
+  disabled?: boolean;
 }
 
 const QuizOption = forwardRef(
@@ -11,7 +12,7 @@ const QuizOption = forwardRef(
     props: React.HTMLAttributes<HTMLInputElement> & Props,
     ref: LegacyRef<HTMLInputElement>
   ) => {
-    const { qId, textContent, ...other } = props;
+    const { qId, textContent, disabled, ...other } = props;
     return (
       <div className="quiz-option">
         <input
@@ -21,6 +22,7 @@ const QuizOption = forwardRef(
           id={`answer-${qId}`}
           ref={ref}
           value={textContent}
+          disabled={disabled ?? undefined}
         />
         <label htmlFor={`answer-${qId}`}>{textContent}</label>
         <div className="letter">{String.fromCharCode(65 + qId)}</div>

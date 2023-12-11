@@ -2,7 +2,7 @@
   position: relative;
   user-select: none;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   font-weight: 500;
   font-size: 1.125rem;
 
@@ -22,6 +22,7 @@
   }
   .letter {
     position: absolute;
+    top: 0.75rem;
     left: 0.75rem;
     width: 2.5rem;
     height: 2.5rem;
@@ -42,6 +43,21 @@
     }
     &:checked ~ label {
       border-color: var(--purple);
+    }
+
+    &.wrong ~ label {
+      border-color: var(--red);
+    }
+    &.wrong ~ .letter {
+      background-color: var(--red);
+      color: white;
+    }
+    &.correct ~ label {
+      border-color: var(--green);
+    }
+    &.correct ~ .letter {
+      background-color: var(--green);
+      color: white;
     }
   }
 }
